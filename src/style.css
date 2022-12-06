@@ -58,3 +58,15 @@ li::first-letter {
   position: relative;
   font-size: 16px;
 }
+
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  text-decoration: none;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+.weather-temperature .pasive:hover {
+  text-decoration: none;
+}
