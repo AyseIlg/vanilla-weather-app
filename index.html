@@ -18,43 +18,57 @@
     <div class="container">
       <div class="waether-app-wrapper">
         <div class="weather-app">
+          <form id="search-form" class="mb-3">
+            <div class="row">
+              <div class="col-9">
+                <input
+                  type="search"
+                  placeholder="Type a city name"
+                  class="form-control"
+                  id="city-input"
+                  autocomplete="off"
+                />
+              </div>
+              <div class="col-3">
+                <input type="submit" value="Search" class="btn btn-primary" />
+              </div>
+            </div>
+          </form>
           <div class="overview">
             <h1 id="city"></h1>
             <ul>
               <li>Last updated: <span id="date"></span></li>
               <li id="description"></li>
             </ul>
-            <div class="row">
-              <div class="col-6">
-                <div class="d-flex weather-temperature">
-                  <img src="" alt="" id="icon" class="float-left" />
-                  <div>
-                    <strong id="temperatures"></strong
-                    ><span class="units"
-                      >°C | °<a href="" target="_blank">F</a></span
-                    >
-                  </div>
-                </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <div class="d-flex weather-temperature">
+                <img src="" alt="" id="icon" class="float-left" />
+                <strong id="temperatures"></strong
+                ><span class="units"
+                  >°C | °<a href="" target="_blank">F</a></span
+                >
               </div>
-              <div class="col-6">
-                <ul>
-                  <li>Humidity: <span id="humidity"></span>%</li>
-                  <li>Wind: <span id="wind"></span>km/h</li>
-                </ul>
-              </div>
+            </div>
+            <div class="col-6">
+              <ul>
+                <li>Humidity: <span id="humidity"></span>%</li>
+                <li>Wind: <span id="wind"></span>km/h</li>
+              </ul>
             </div>
           </div>
         </div>
-        <small>
-          <a
-            href="https://github.com/AyseIlg/vanilla-weather-app"
-            target="_blank"
-          >
-            Open-source code,</a
-          >
-          by Aysenur Ilgezdi
-        </small>
       </div>
+      <small>
+        <a
+          href="https://github.com/AyseIlg/vanilla-weather-app"
+          target="_blank"
+        >
+          Open-source code,</a
+        >
+        by Aysenur Ilgezdi
+      </small>
     </div>
     <script src="src/index.js"></script>
   </body>
