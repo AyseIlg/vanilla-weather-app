@@ -41,18 +41,16 @@ function displayForecast(response) {
       <div class="col-2">
         <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
         <img
-          src="http://openweathermap.org/img/wn/${
-            forecastDay.data.condition.icon
-          }@2x.png"s
+          src="${forecastDay.condition.icon_url}"
           alt=""
           width="42"
         />
         <div class="weather-forecast-temperatures">
           <span class="weather-forecast-temperature-max"> ${Math.round(
-            forecastDay.temperature.max
+            forecastDay.temperature.maximum
           )}° </span>
           <span class="weather-forecast-temperature-min"> ${Math.round(
-            forecastDay.temperature.min
+            forecastDay.temperature.minimum
           )}° </span>
         </div>
       </div>
@@ -64,9 +62,10 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
+  let lon = coordinates.longitude;
+  let lat = coordinates.latitude;
   let apiKey = "54ta40282dof71f561bc5ad10a73608a";
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon={lon}&lat={lat}&key=${apiKey}&units=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -98,6 +97,7 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.time * 1000);
   iconElement.setAttribute("alt", response.data.condition.description);
+  getForecast(response.data.coordinates);
 }
 
 function search(city) {
